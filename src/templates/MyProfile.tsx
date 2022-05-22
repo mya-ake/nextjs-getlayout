@@ -1,3 +1,12 @@
+import { useAuthenticated } from "@/shared/auth";
+
 export const MyProfile = () => {
-  return <h1>MyProfile</h1>;
+  const authenticated = useAuthenticated();
+
+  return (
+    <div>
+      <h1>MyProfile</h1>
+      <p>Authenticated: {String(authenticated)}</p>
+    </div>
+  );
 };
