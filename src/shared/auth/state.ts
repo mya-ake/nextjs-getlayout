@@ -21,6 +21,10 @@ const state = atom({
        * - requestAnimationFrameを使っていると、違うレイアウトからの遷移の場合に値が戻らないので、初回ロード時以外は囲まないようにする必要がある。
        *   - とりあえずfirstLoadの変数で対応している
        *   - RecoilRootのinitializeStateでも同様
+       * - メモ
+       *   - レイアウト間の値保持ならLocalStorageじゃなくて、シングルトンに逃がすとかで十分そう
+       *     - これならSSRとCSRの差のエラーは起きなくなりそう
+       *   - 永続化してる場合はSuspenseを使えばチラつきもなくいい感じにできるかも？
        */
       switch (trigger) {
         case "get": {
